@@ -67,7 +67,6 @@ C:\Users\joseph\source\repos\EFMultiTenant-ASP\EFMultiTenant-ASP\bin\MultiTenant
 C:\Users\joseph\source\repos\EFMultiTenant-ASP\EFMultiTenant-ASP\bin\Antlr3.Runtime.dll
 C:\Users\joseph\source\repos\EFMultiTenant-ASP\EFMultiTenant-ASP\bin\EntityFramework.dll
 C:\Users\joseph\source\repos\EFMultiTenant-ASP\EFMultiTenant-ASP\bin\EntityFramework.SqlServer.dll
-C:\Users\joseph\source\repos\EFMultiTenant-ASP\EFMultiTenant-ASP\bin\FluentAssert.dll
 C:\Users\joseph\source\repos\EFMultiTenant-ASP\EFMultiTenant-ASP\bin\Microsoft.AI.Agent.Intercept.dll
 C:\Users\joseph\source\repos\EFMultiTenant-ASP\EFMultiTenant-ASP\bin\Microsoft.AI.DependencyCollector.dll
 C:\Users\joseph\source\repos\EFMultiTenant-ASP\EFMultiTenant-ASP\bin\Microsoft.AI.PerfCounterCollector.dll
@@ -89,7 +88,6 @@ C:\Users\joseph\source\repos\EFMultiTenant-ASP\EFMultiTenant-ASP\bin\System.Web.
 C:\Users\joseph\source\repos\EFMultiTenant-ASP\EFMultiTenant-ASP\bin\WebGrease.dll
 C:\Users\joseph\source\repos\EFMultiTenant-ASP\EFMultiTenant-ASP\bin\EntityFramework.xml
 C:\Users\joseph\source\repos\EFMultiTenant-ASP\EFMultiTenant-ASP\bin\EntityFramework.SqlServer.xml
-C:\Users\joseph\source\repos\EFMultiTenant-ASP\EFMultiTenant-ASP\bin\FluentAssert.pdb
 C:\Users\joseph\source\repos\EFMultiTenant-ASP\EFMultiTenant-ASP\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\joseph\source\repos\EFMultiTenant-ASP\EFMultiTenant-ASP\bin\nunit.framework.xml
 C:\Users\joseph\source\repos\EFMultiTenant-ASP\EFMultiTenant-ASP\bin\System.Web.Helpers.xml
@@ -115,3 +113,7 @@ C:\Users\joseph\source\repos\EFMultiTenant-ASP\EFMultiTenant-ASP\obj\Debug\Multi
 C:\Users\joseph\source\repos\EFMultiTenant-ASP\EFMultiTenant-ASP\bin\EntityFramework.DynamicFilters.dll
 C:\Users\joseph\source\repos\EFMultiTenant-ASP\EFMultiTenant-ASP\bin\EntityFramework.DynamicFilters.xml
 C:\Users\joseph\source\repos\EFMultiTenant-ASP\EFMultiTenant-ASP\obj\Debug\EFMultiTenant.Models.AddTenant.resources
+C:\Users\joseph\source\repos\EFMultiTenant-ASP\EFMultiTenant-ASP\bin\FluentAssertions.dll
+C:\Users\joseph\source\repos\EFMultiTenant-ASP\EFMultiTenant-ASP\bin\System.ValueTuple.dll
+C:\Users\joseph\source\repos\EFMultiTenant-ASP\EFMultiTenant-ASP\bin\FluentAssertions.pdb
+C:\Users\joseph\source\repos\EFMultiTenant-ASP\EFMultiTenant-ASP\bin\FluentAssertions.xml

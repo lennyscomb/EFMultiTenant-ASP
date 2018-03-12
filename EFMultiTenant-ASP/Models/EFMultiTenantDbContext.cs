@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using EntityFramework.DynamicFilters;
+using MultiTenantEF_ASP.Models;
 
 namespace EFMultiTenant.Models
 {
@@ -113,10 +114,18 @@ namespace EFMultiTenant.Models
 
         public void SetTenantId(Guid? tenantId)
         {
-            _currentTenantId = tenantId;
-            this.SetFilterScopedParameterValue("SecuredByTenant", "securedByTenantId", _currentTenantId);
-            this.SetFilterGlobalParameterValue("SecuredByTenant", "securedByTenantId", _currentTenantId);
-            //this.GetFilterParameterValue("SecuredByTenant", "securedByTenantId");
+            if (tenantId.Equals(TenantContext.MasterTenantGuid))
+            {
+                this.DisableFilter("SecuredByTenant");
+            }
+            else
+            {
+                this.EnableFilter("SecuredByTenant");
+                _currentTenantId = tenantId;
+                this.SetFilterScopedParameterValue("SecuredByTenant", "securedByTenantId", _currentTenantId);
+                this.SetFilterGlobalParameterValue("SecuredByTenant", "securedByTenantId", _currentTenantId);
+                //this.GetFilterParameterValue("SecuredByTenant", "securedByTenantId");
+            }
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

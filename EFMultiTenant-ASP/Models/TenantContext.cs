@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using EFMultiTenant.Models;
 
 namespace MultiTenantEF_ASP.Models
@@ -40,6 +41,14 @@ namespace MultiTenantEF_ASP.Models
                 return tenantGuid;
 
             }
+        }
+
+
+        public static readonly Guid MasterTenantGuid = Guid.Empty;
+
+        public static void SetTenantToMaster()
+        {
+            SetTenant(MasterTenantGuid);
         }
     }
 }
