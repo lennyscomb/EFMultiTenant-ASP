@@ -10,8 +10,6 @@ namespace EFMultiTenantTest
 {
     public class CustomerTest : EFMultiTenantTest
     {
-        private readonly TenantTestHelper tenantTestHelper = new TenantTestHelper();
-
         [Test]
         public void CreateCustomer()
         {
