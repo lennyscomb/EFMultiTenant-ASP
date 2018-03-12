@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using MultiTenantEF_ASP.Models;
 
@@ -19,6 +20,11 @@ namespace EFMultiTenant.Models
             {
                 return a.Name.Equals(name);
             }).FirstOrDefault();
+        }
+
+        public static List<Customer> FindCustomers()
+        {
+            return TransactionManager.UnitOfWork().FindAll<Customer>();
         }
     }
 }

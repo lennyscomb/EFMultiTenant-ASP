@@ -26,5 +26,13 @@ namespace EFMultiTenant.Models
                 return null;
             });
         }
+
+        public static List<CustomerViewModel> FindCustomers()
+        {
+            return TransactionManager.Execute(System.Reflection.MethodBase.GetCurrentMethod().Name, () =>
+            {
+                return new CustomerAssembler().Assemble(CustomerRepository.FindCustomers());
+            });
+        }
     }
 }

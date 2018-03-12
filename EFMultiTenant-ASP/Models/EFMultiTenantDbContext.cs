@@ -3,15 +3,38 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
-using System.Threading.Tasks;
+using EntityFramework.DynamicFilters;
 
 namespace EFMultiTenant.Models
 {
     public class EFMultiTenantDbContext : DbContext, IUnitOfWork 
     {
+
+        public static EFMultiTenantDbContext Create()
+        {
+            return new EFMultiTenantDbContext();
+        }
+        
+        private Guid? _currentTenantId;
+
         public EFMultiTenantDbContext() : base("EFMultiTenantDbContext")
         {
+            Init();
+        }
 
+        public EFMultiTenantDbContext(string connectionString) : base(connectionString)
+        {
+            Init();
+        }
+
+        public EFMultiTenantDbContext(string connectionString, DbCompiledModel model) : base(connectionString, model)
+        {
+            Init();
+        }
+
+        protected internal virtual void Init()
+        {
+            this.InitializeDynamicFilters();
         }
 
         public DbSet<Customer> Customers { get; set; }
@@ -63,9 +86,48 @@ namespace EFMultiTenant.Models
             return Database;
         }
 
-        public static EFMultiTenantDbContext Create()
+        public override int SaveChanges()
         {
-            return new EFMultiTenantDbContext();
+            var createdEntries = GetCreatedEntries();
+
+            if (createdEntries.Any())
+            {
+                foreach (var createdEntry in createdEntries)
+                {
+                    var iSecuredByTenantEntry = createdEntry.Entity as ISecuredByTenant;
+                    if (iSecuredByTenantEntry != null)
+                        iSecuredByTenantEntry.SecuredByTenantId = _currentTenantId;
+                }
+            }
+
+            return base.SaveChanges();
         }
+
+        private IEnumerable<DbEntityEntry> GetCreatedEntries()
+        {
+            var createdEntries = ChangeTracker.Entries().Where(V =>
+                EntityState.Added.HasFlag(V.State)
+            );
+            return createdEntries;
+        }
+
+        public void SetTenantId(Guid? tenantId)
+        {
+            _currentTenantId = tenantId;
+            this.SetFilterScopedParameterValue("SecuredByTenant", "securedByTenantId", _currentTenantId);
+            this.SetFilterGlobalParameterValue("SecuredByTenant", "securedByTenantId", _currentTenantId);
+            //this.GetFilterParameterValue("SecuredByTenant", "securedByTenantId");
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+
+            modelBuilder.Filter("SecuredByTenant",
+                (ISecuredByTenant securedByTenant, Guid? securedByTenantId) => securedByTenant.SecuredByTenantId == securedByTenantId,
+                () => Guid.Empty);
+
+            base.OnModelCreating(modelBuilder);
+        }
+
     }
 }

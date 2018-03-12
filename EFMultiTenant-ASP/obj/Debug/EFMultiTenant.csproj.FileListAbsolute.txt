@@ -112,3 +112,6 @@ C:\Users\joseph\source\repos\EFMultiTenant-ASP\EFMultiTenant-ASP\obj\Debug\EFMul
 C:\Users\joseph\source\repos\EFMultiTenant-ASP\EFMultiTenant-ASP\obj\Debug\EFMultiTenant.csproj.CoreCompileInputs.cache
 C:\Users\joseph\source\repos\EFMultiTenant-ASP\EFMultiTenant-ASP\obj\Debug\MultiTenantEF-ASP.dll
 C:\Users\joseph\source\repos\EFMultiTenant-ASP\EFMultiTenant-ASP\obj\Debug\MultiTenantEF-ASP.pdb
+C:\Users\joseph\source\repos\EFMultiTenant-ASP\EFMultiTenant-ASP\bin\EntityFramework.DynamicFilters.dll
+C:\Users\joseph\source\repos\EFMultiTenant-ASP\EFMultiTenant-ASP\bin\EntityFramework.DynamicFilters.xml
+C:\Users\joseph\source\repos\EFMultiTenant-ASP\EFMultiTenant-ASP\obj\Debug\EFMultiTenant.Models.AddTenant.resources

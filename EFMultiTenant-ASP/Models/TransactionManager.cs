@@ -78,7 +78,9 @@ namespace MultiTenantEF_ASP.Models
 
         private static IUnitOfWork CreateUow()
         {
-            return new EFMultiTenantDbContext();
+            var efMultiTenantDbContext = new EFMultiTenantDbContext();
+            efMultiTenantDbContext.SetTenantId(TenantContext.GetTenant());
+            return efMultiTenantDbContext;
         }
 
         private static System.Object unitOfWorkClearLock = new System.Object();

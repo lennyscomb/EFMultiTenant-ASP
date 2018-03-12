@@ -50,6 +50,9 @@
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework.DynamicFilters, Version=3.0.1.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.DynamicFilters.3.0.1\lib\net40\EntityFramework.DynamicFilters.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
@@ -163,6 +166,10 @@
     <Compile Include="Migrations\201803112202229_CreateCustomer.Designer.cs">
       <DependentUpon>201803112202229_CreateCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803120406235_AddTenant.cs" />
+    <Compile Include="Migrations\201803120406235_AddTenant.Designer.cs">
+      <DependentUpon>201803120406235_AddTenant.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomerAssembler.cs" />
@@ -173,16 +180,21 @@
     <Compile Include="Models\ErrorViewModel.cs" />
     <Compile Include="Models\DomainFacade.cs" />
     <Compile Include="Models\IEntity.cs" />
+    <Compile Include="Models\ISecuredByTenant.cs" />
     <Compile Include="Models\IUnitOfWork.cs" />
     <Compile Include="Models\SqlUnitOfWork.cs" />
     <Compile Include="Models\TransactionManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\CustomerTest.cs" />
+    <Compile Include="Tests\CustomerTestHelper.cs" />
     <Compile Include="Tests\Database.cs" />
     <Compile Include="Tests\DatabaseDeleter.cs" />
     <Compile Include="Tests\DatabaseSeeder.cs" />
     <Compile Include="Tests\EFMultiTenantTest.cs" />
     <Compile Include="Tests\EFMultiTenantTestFixture.cs" />
+    <Compile Include="Models\TenantContext.cs" />
+    <Compile Include="Tests\StringTestHelper.cs" />
+    <Compile Include="Tests\TenantTestHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -245,6 +257,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201803112202229_CreateCustomer.resx">
       <DependentUpon>201803112202229_CreateCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803120406235_AddTenant.resx">
+      <DependentUpon>201803120406235_AddTenant.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
